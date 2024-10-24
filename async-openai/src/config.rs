@@ -192,6 +192,8 @@ impl Config for AzureConfig {
             self.api_key.expose_secret().as_str().parse().unwrap(),
         );
 
+        headers.insert(OPENAI_BETA_HEADER, "assistants=v2".parse().unwrap());
+
         headers
     }
 
