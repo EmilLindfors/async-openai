@@ -197,8 +197,8 @@ impl Config for AzureConfig {
 
     fn url(&self, path: &str) -> String {
         format!(
-            "{}/openai/deployments/{}{}",
-            self.api_base, self.deployment_id, path
+            "{}/openai/{}",
+            self.api_base, path
         )
     }
 
