@@ -288,6 +288,14 @@ pub struct ListAssistantsResponse {
     pub has_more: bool,
 }
 
+impl Iterator for ListAssistantsResponse {
+    type Item = AssistantObject;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.data.pop()
+    }
+}
+
 /// Controls which (if any) tool is called by the model.
 /// `none` means the model will not call any tools and instead generates a message.
 /// `auto` is the default value and means the model can pick between generating a message or calling one or more tools.

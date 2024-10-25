@@ -38,3 +38,11 @@ pub struct ListAssistantFilesResponse {
     pub last_id: Option<String>,
     pub has_more: bool,
 }
+
+impl Iterator for ListAssistantFilesResponse {
+    type Item = AssistantFileObject;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.data.pop()
+    }
+}
